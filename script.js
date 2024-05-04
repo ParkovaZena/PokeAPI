@@ -1,14 +1,14 @@
 
 //ascync await
 
-const ulr='https://official-joke-api.appspot.com/jokes/random';
+const ulr="";
 
 async function getData(){
     try{
     const odpovet = await fetch(ulr);
     const data = await odpovet.json();
-    document.querySelector('p').innerText=data.punchline;
-    document.querySelector('h1').innerText=data.setup;
+    document.querySelector('p').innerText=data.name;
+    document.querySelector('h1').innerText=data.type;
     }
     catch(error){
         console.log(error);
@@ -18,6 +18,7 @@ async function getData(){
 getData();
 
 document.getElementById('btn').addEventListener('click',()=>{
+    ulr=`https://pokeapi.co/api/v2/pokemon/${document.querySelector('input').value}`;
     getData();
 });
 

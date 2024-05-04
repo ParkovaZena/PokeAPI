@@ -1,14 +1,14 @@
 
 //ascync await
 
-const ulr="";
+let  ulr="";
 
 async function getData(){
     try{
     const odpovet = await fetch(ulr);
     const data = await odpovet.json();
     document.querySelector('p').innerText=data.name;
-    document.querySelector('h1').innerText=data.type;
+    document.querySelector('h1').innerText=data.height;
     }
     catch(error){
         console.log(error);

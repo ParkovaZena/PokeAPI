@@ -7,8 +7,8 @@ async function getData(){
     try{
     const odpovet = await fetch(ulr);
     const data = await odpovet.json();
-    document.querySelector('p').innerText=data.name;
-    document.querySelector('h1').innerText=data.height;
+    document.querySelector('p').innerText=data.id;
+    document.querySelector('h1').innerText=data.name;
     }
     catch(error){
         console.log(error);

@@ -7,7 +7,7 @@ async function getData(){
     try{
     const odpovet = await fetch(ulr);
     const data = await odpovet.json();
-    document.querySelector('p').innerText="ID: "+data.id;
+    document.querySelector('p').innerText=" Pokedex ID: "+data.id;
     document.querySelector('h1').innerText="Jmeno: "+data.name;
     }
     catch(error){
@@ -18,8 +18,13 @@ async function getData(){
 getData();
 
 document.getElementById('btn').addEventListener('click',()=>{
-    ulr=`https://pokeapi.co/api/v2/pokemon/${document.querySelector('input').value}`;
-    getData();
+    try {
+        ulr=`https://pokeapi.co/api/v2/pokemon/${document.querySelector('input').value}`;
+        getData();
+    } catch (error) {
+        console.log("zadej cele jmeno pokemona!!!!!!§");
+    }
+
 });
 
 /*

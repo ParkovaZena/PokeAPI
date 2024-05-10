@@ -28,8 +28,10 @@ async function getData(){
     p.innerText=data.id;
     document.querySelector('img').src=data.sprites.front_default;
     console.log(data.stats[0].base_stat);
-    
+    for (let i = 0; i < 4; i++) {
+        document.querySelector('table').rows[i].cells[1].innerText=data.stats[i].base_stat;        
     }
+}
     catch(error){
         console.log(error);
     }

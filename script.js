@@ -1,35 +1,46 @@
-
 //ascync await
 
-let  ulr="";
+const p = document.querySelector('p');
+const btn = document.querySelector('button');
+const nadpis=document.querySelector('h1');
+
+const rada="";
+
+const ftipy = 'https://api.adviceslip.com/advice';
+const pokeApi = `https://pokeapi.co/api/v2/pokemon/${rnd()}`;
+
+function rnd(){
+    return Math.floor(Math.random()*1023);
+}
+
+getData();
 
 async function getData(){
     try{
-    const odpovet = await fetch(ulr);
+    const odpovet = await fetch(pokeApi);
     const data = await odpovet.json();
-    document.querySelector('p').innerText=" Pokedex ID: "+data.id;
-    document.querySelector('h1').innerText="Jmeno: "+data.name;
+    nadpis.innerText=data.name;
+    p.innerText=data.id;
+    document.querySelector('img').src=data.sprites.front_default;
+    console.log(data.stats[0].base_stat);
+    
     }
     catch(error){
         console.log(error);
     }
 }
 
-getData();
 
-document.getElementById('btn').addEventListener('click',()=>{
-    try {
-        ulr=`https://pokeapi.co/api/v2/pokemon/${document.querySelector('input').value}`;
-        getData();
-    } catch (error) {
-        console.log("zadej cele jmeno pokemona!!!!!!§");
-    }
-
+btn.addEventListener('click',()=>{
+    location.reload();
 });
+
+
+
 
 /*
 const jsonFile = `[
-    {"jmeno" : "patric"},
+    {"jmeno" : "patrick"},
     {"jmeno" : "bateman"}
 ]`;
 

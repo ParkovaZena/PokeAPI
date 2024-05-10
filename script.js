@@ -3,6 +3,11 @@
 const p = document.querySelector('p');
 const btn = document.querySelector('button');
 const nadpis=document.querySelector('h1');
+const hp=document.getElementById('hp');
+const atk=document.getElementById('atk');
+const def=document.getElementById('def');
+const spd=document.getElementById('spd');
+
 
 const rada="";
 

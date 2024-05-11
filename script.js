@@ -25,7 +25,7 @@ async function getData(){
     const odpovet = await fetch(pokeApi);
     const data = await odpovet.json();
     nadpis.innerText=data.name;
-    p.innerText=data.id;
+    p.innerText="ID: "+data.id;
     document.querySelector('img').src=data.sprites.front_default;
     console.log(data.stats[0].base_stat);
     for (let i = 0; i < 4; i++) {

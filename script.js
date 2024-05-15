@@ -27,7 +27,7 @@ async function getData(){
     nadpis.innerText=data.name;
     p.innerText="ID: "+data.id;
     document.querySelector('img').src=data.sprites.front_default;
-    console.log(data.stats[0].base_stat);
+    console.log(data);
     for (let i = 0; i < 4; i++) {
         document.querySelector('table').rows[i].cells[1].innerText=data.stats[i].base_stat;        
     }
